@@ -1,5 +1,5 @@
 module.exports = (express) => {
-  var router = express.Router();
+  const router = express.Router();
 
   router.get('/status', (req, res) => {
     res.json({
@@ -9,6 +9,7 @@ module.exports = (express) => {
 
   // API Routes
   router.use('/api/', require('./api/user')(express));
+  router.use('/api/', require('./api/url')(express));
 
   return router;
 }

@@ -1,18 +1,18 @@
 const db = require('./db');
 
-// POST user entry
+// POST url entry
 exports.create = (payload, err, success) => {
-  db.user.create(payload).then(success).catch(err);
+  db.url.create(payload).then(success).catch(err);
 };
 
-// GET all user entries
+// GET all url entries
 exports.findAll = (err, success) => {
-  db.user.findAll().then(success).catch(err);
+  db.url.findAll().then(success).catch(err);
 };
 
-// GET Single user entry
+// GET Single url entry
 exports.find = (payload, err, success) => {
-  db.user.find({
+  db.url.find({
     where: {
       id: payload.id,
     },
@@ -24,18 +24,18 @@ exports.find = (payload, err, success) => {
   }).then(success).catch(err);
 };
 
-// DESTROY Single user entry
+// DESTROY Single url entry
 exports.destroy = (payload, err, success) => {
-  db.user.destroy({
+  db.url.destroy({
     where: {
       id: payload.id,
     },
   }).then(success).catch(err);
 };
 
-// UPDATE Single user entry
+// UPDATE Single url entry
 exports.update = (payload, err, success) => {
-  db.user.find({
+  db.url.find({
     where: {
       id: payload.id,
     },

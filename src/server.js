@@ -1,16 +1,19 @@
-var express = require('express');
-var body_parser = require('body-parser');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
 // config
-var port = 3000;
+const port = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended:true
+}));
 
 // Setting Routes path
-app.use('/api', require('./routes/index')(express));
+app.use('/', require('./routes/index')(express));
 
 // Server activation
-var server = app.listen(port, function () {
+exports.server = app.listen(port, () => {
   console.log('Server is active.', port);
 });
-
-module.exports = server;

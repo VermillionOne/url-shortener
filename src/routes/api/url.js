@@ -1,52 +1,52 @@
-const user = require('../../models/user');
-console.log(user);
+const url = require('../../models/url');
+console.log(url);
 
 module.exports = (express) => {
   const router = express.Router();
-  // Create a new user database entry
-  router.post('/users', (req, res) => {
+  // Create a new url database entry
+  router.post('/urls', (req, res) => {
     const request = req;
     const response = res;
-    user.create(request.body, (err) => {
+    url.create(request.body, (err) => {
       response.status(500).json(err);
     }, (data) => {
       // response.status(200).json(data);
-      const users = data;
-      response.render('pages/users', { users });
+      const urls = data;
+      response.render('pages/urls', { urls });
     });
   });
 
-  // Retrieve data for every User in the database
-  // Necessary update: to limit call to only Users created by current user.
-  router.get('/users', (req, res) => {
+  // Retrieve data for every URL in the database
+  // Necessary update: to limit call to only URLs created by current user.
+  router.get('/urls', (req, res) => {
     const response = res;
-    user.findAll((err) => {
+    url.findAll((err) => {
       response.status(500).json(err);
     }, (data) => {
       // response.status(200).json(data);
-      const users = data;
-      response.render('pages/users', { users });
+      const urls = data;
+      response.render('pages/urls', { urls });
     });
   });
 
   // Read a single entry
-  router.get('/users/:id', (req, res) => {
+  router.get('/urls/:id', (req, res) => {
     const request = req;
     const response = res;
     request.body.id = request.params.id;
-    user.find(request.body, (err) => {
+    url.find(request.body, (err) => {
       response.status(500).json(err);
     }, (data) => {
       response.status(200).json(data);
     });
   });
 
-  // Update a user database entry
-  router.post('/users/:id', (req, res) => {
+  // Update a url database entry
+  router.post('/urls/:id', (req, res) => {
     const request = req;
     const response = res;
     request.body.id = request.params.id;
-    user.update(req.body, (err) => {
+    url.update(req.body, (err) => {
       response.status(500).json(err);
     }, (data) => {
       response.status(200).json(data);
@@ -54,11 +54,11 @@ module.exports = (express) => {
   });
 
   // Delete a single entry
-  router.delete('/users/:id', (req, res) => {
+  router.delete('/urls/:id', (req, res) => {
     const request = req;
     const response = res;
     request.body.id = request.params.id;
-    user.destroy(req.body, (err) => {
+    url.destroy(req.body, (err) => {
       response.status(500).json(err);
     }, (data) => {
       response.status(200).json(data);

@@ -28,7 +28,7 @@ const user = sequelize.define('user', {
   },
 });
 
-const url = sequelize.define('shortUrl', {
+const url = sequelize.define('url', {
   originalUrl: {
     type: Sequelize.STRING,
   },
@@ -48,3 +48,4 @@ sequelize.sync();
 
 exports.sequelize = sequelize;
 exports.user = user;
+exports.url = url;
