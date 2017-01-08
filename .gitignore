@@ -1,10 +1,15 @@
 node_modules
+.env
+.env.json
+out
+build
 
 .DS_store
 
 # Logs
 logs
 *.log
+*.logs
 npm-debug.log*
 
 # Runtime data

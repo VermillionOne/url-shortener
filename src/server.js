@@ -6,7 +6,7 @@ var app = express();
 var port = 3000;
 
 // Setting Routes path
-app.use('/api', require('../routes/api.js')(express));
+app.use('/api', require('./routes/index')(express));
 
 // Server activation
 var server = app.listen(port, function () {
