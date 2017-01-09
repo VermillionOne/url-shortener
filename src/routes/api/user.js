@@ -1,5 +1,4 @@
 const user = require('../../models/user');
-console.log(user);
 
 module.exports = (express) => {
   const router = express.Router();

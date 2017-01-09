@@ -1,5 +1,5 @@
 const url = require('../../models/url');
-console.log(url);
+const shortURL = require('../../factories/shortURL');
 
 module.exports = (express) => {
   const router = express.Router();
@@ -7,6 +7,9 @@ module.exports = (express) => {
   router.post('/urls', (req, res) => {
     const request = req;
     const response = res;
+
+    request.body.shortUrl = shortURL.generate();
+
     url.create(request.body, (err) => {
       response.status(500).json(err);
     }, (data) => {
