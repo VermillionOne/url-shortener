@@ -24,7 +24,7 @@ exports.generate = () => {
   let number2 = pickANumber();
   let number3 = pickANumber();
 
-  let result = 'www.link.r/' + letter1 + letter2 + letter3 + number1.toString() + number2.toString() + number3.toString();
+  let result = letter1 + letter2 + letter3 + number1.toString() + number2.toString() + number3.toString();
 
   return result;
 

@@ -24,6 +24,20 @@ exports.find = (payload, err, success) => {
   }).then(success).catch(err);
 };
 
+// GET Single url using shortUrl
+exports.findUrl = (payload, err, success) => {
+  db.url.find({
+    where: {
+      shortUrl: payload.shortUrl,
+    },
+    // Find all relations in sequelize
+    include: [{
+      all: true,
+      nested: true,
+    }],
+  }).then(success).catch(err);
+};
+
 // DESTROY Single url entry
 exports.destroy = (payload, err, success) => {
   db.url.destroy({
