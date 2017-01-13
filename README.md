@@ -99,4 +99,76 @@ Delete User based upon User id.
 ##### [GET] /go/:shortUrl
 Redirects to original URL address.
 
+### V2
+
+#### Endpoints for Testing The API
+##### [GET] /api/v2/status
+
+Should return `{healthy:true}`.
+
+##### [GET] /api/v2/urls/status
+
+Should return `{healthy:true}`.
+
+##### [GET] /go/status
+
+Should return `{healthy:true}`.
+
+#### URL Endpoints
+##### [POST] /api/v2/urls
+Create a shortened URL.
+
+This endpoint must be used with an existing user ID.
+
+Accepts the following object:
+```
+{
+  orginalUrl: [string],
+  urlName: [string],
+  userID: [string],
+}
+```
+
+##### [GET] /api/v2/urls
+Display all URLs.
+
+##### [GET] /api/v2/urls/:id
+Display URL based upon URL id.
+
+##### [POST] /api/v2/urls/:id
+Update URL based upon URL id.
+
+##### [DELETE]  /api/v2/urls/:id
+Delete URL based upon URL id.
+
+#### User Endpoints
+
+##### [POST] /api/v2/users
+Create a new user.
+
+Accepts the following object:
+```
+{
+  firstName: [string],
+  lastName: [string],
+  name: [string],
+  username: [string],
+}
+```
+
+##### [GET] /api/v2/users
+Display all Users.
+
+##### [GET] /api/v2/users/:id
+Display User based upon User id.
+
+##### [POST] /api/v2/users/:id
+Update User based upon User id.
+
+##### [DELETE]  /api/v2/users/:id
+Delete User based upon User id.
+
+##### [GET] /go/:shortUrl
+Redirects to original URL address.
+
 ## Utiliity
