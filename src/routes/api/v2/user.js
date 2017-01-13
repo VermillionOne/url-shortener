@@ -1,9 +1,10 @@
-const user = require('../../models/user');
+const user = require('../../../models/user');
+const utility = require('../../../../lib/utility');
 
 module.exports = (express) => {
   const router = express.Router();
 
-  // to show /api/user is operational
+  // to show /api/v2/users is operational
   router.get('/users/status', (req, res) => {
     res.json({
       healthy: true,
@@ -16,8 +17,10 @@ module.exports = (express) => {
     const response = res;
     user.create(request.body, (err) => {
       response.status(500).json(err);
+        utility.debug('Attempt to create a new single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
+        utility.debug('Single User Created =>', data, 'SUCCESS');
       const users = data;
       response.render('pages/users', { users });
     });
@@ -29,8 +32,10 @@ module.exports = (express) => {
     const response = res;
     user.findAll((err) => {
       response.status(500).json(err);
+        utility.debug('Attempt to access all Users  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
+        utility.debug('All users accessed =>', data, 'SUCCESS');
       const users = data;
       response.render('pages/users', { users });
     });
@@ -43,8 +48,10 @@ module.exports = (express) => {
     request.body.id = request.params.id;
     user.find(request.body, (err) => {
       response.status(500).json(err);
+        utility.debug('Attempt to access a single user  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
+      utility.debug('Single user accessed =>', data, 'SUCCESS');
     });
   });
 
@@ -55,8 +62,10 @@ module.exports = (express) => {
     request.body.id = request.params.id;
     user.update(req.body, (err) => {
       response.status(500).json(err);
+        utility.debug('Attempt to update a single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
+      console.log('Single user Updated =>', data, 'SUCCESS');
     });
   });
 
@@ -67,8 +76,10 @@ module.exports = (express) => {
     request.body.id = request.params.id;
     user.destroy(req.body, (err) => {
       response.status(500).json(err);
+        utility.debug('Attempt to delete a single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
+        utility.debug('Single user deleted =>', data, 'SUCCESS');
     });
   });
 

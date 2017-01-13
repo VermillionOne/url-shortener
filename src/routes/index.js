@@ -1,6 +1,7 @@
 module.exports = (express) => {
   const router = express.Router();
 
+  // to show index is operational
   router.get('/status', (req, res) => {
     res.json({
       healthy: true,
