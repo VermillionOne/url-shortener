@@ -1,45 +1,58 @@
-var expect = require('expect');
+var expect = require('chai').expect();
 var request = require('supertest');
 
-describe('API', function() {
-
+describe('API', () => {
   var server;
 
-  beforeEach(function () {
-
-    server = require('../src/server.js');
-
+  beforeEach(() => {
+    server = require('../src/server.js')
   });
-  afterEach(function () {
 
+  afterEach(() => {
     server.close();
-
   });
 
-  it('/ Should return specified object.', function testHealth(done) {
+  it('/status Should return specified object healthy:true.', (done) => {
     request(server)
-    .get('/api/')
+    .get('/status')
     .set('Accept', 'application/json')
     .expect('Content-Type', /json/)
-    .expect(200, { hello: "world" } ,done);
-  });
+    .expect((res) => {
+      const status = res.body;
 
-  it('/status Should return specified object healthy:true.', function testHealth(done) {
+      // Save one single url from the list to test on in later tests
+      this.status = {healthy: true}
+
+      expect(status.length).to.be.above(0)
+    })
+    .end(done);
+  });
+  // Proves V1 is working
+  it('/api/status Should return specified object healthy:true.', (done) => {
     request(server)
     .get('/api/status')
     .set('Accept', 'application/json')
     .expect('Content-Type', /json/)
-    .expect(200, { healthy: true } ,done);
+    .expect(200, { healthy: true })
+    .end(done);
   });
-
-  it('/user/id Should return a user object with id.', function testHealth(done) {
-    var fakeUserID = 345;
+  // Proves V2 is working
+  it('/v2/status Should return specified object healthy:true.', (done) => {
     request(server)
-    .get('/api/user/' + fakeUserID)
+    .get('/api/v2/status')
     .set('Accept', 'application/json')
     .expect('Content-Type', /json/)
-    .expect(200, { user: {id: fakeUserID}} ,done);
+    .expect(200, { healthy: true })
+    .end(done);
   });
-
+  // Proves /go is working
+  it('/go/status Should return specified object healthy:true.', (done) => {
+    request(server)
+    .get('/go/status')
+    .set('Accept', 'application/json')
+    .expect('Content-Type', /json/)
+    .expect(200, { healthy: true })
+    .end(done);
+  });
 
 });

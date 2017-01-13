@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const utility = require('../lib/utility');
 const app = express();
 
 // config
@@ -15,5 +16,7 @@ app.use('/', require('./routes/index')(express));
 
 // Server activation
 exports.server = app.listen(port, () => {
-  console.log('Server is active.', port);
+  utility.debug('Server is active.', port, 'SUCCESS');
 });
+
+module.exports = app;

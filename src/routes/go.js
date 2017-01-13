@@ -3,6 +3,13 @@ const url = require('../models/url');
 module.exports = (express) => {
   const router = express.Router();
 
+  // to show /go is operational
+  router.get('/status', (req, res) => {
+    res.json({
+      healthy: true,
+    });
+  });
+
   // Read a single short URL and get an original URL in response
   router.get('/:shortUrl', (req, res) => {
     const request = req;
