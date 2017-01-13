@@ -24,8 +24,6 @@ module.exports = (express) => {
       utility.debug('Attempt to create a new single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
-      const urls = data;
-      response.render('pages/urls', { urls });
       utility.debug('Single URL Created =>', data, 'SUCCESS');
     });
   });
@@ -39,8 +37,6 @@ module.exports = (express) => {
       utility.debug('Attempt to access all Users  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
-      const urls = data;
-      response.render('pages/urls', { urls });
       utility.debug('Every URL Accessed =>', data, 'SUCCESS');
     });
   });

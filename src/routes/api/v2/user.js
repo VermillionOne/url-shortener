@@ -20,9 +20,7 @@ module.exports = (express) => {
         utility.debug('Attempt to create a new single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
-        utility.debug('Single User Created =>', data, 'SUCCESS');
-      const users = data;
-      response.render('pages/users', { users });
+      utility.debug('Single User Created =>', data, 'SUCCESS');
     });
   });
 
@@ -35,9 +33,7 @@ module.exports = (express) => {
         utility.debug('Attempt to access all Users  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
-        utility.debug('All users accessed =>', data, 'SUCCESS');
-      const users = data;
-      response.render('pages/users', { users });
+      utility.debug('All users accessed =>', data, 'SUCCESS');
     });
   });
 
@@ -65,7 +61,7 @@ module.exports = (express) => {
         utility.debug('Attempt to update a single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
-      console.log('Single user Updated =>', data, 'SUCCESS');
+      utility.debug('Single user Updated =>', data, 'SUCCESS');
     });
   });
 
@@ -79,7 +75,7 @@ module.exports = (express) => {
         utility.debug('Attempt to delete a single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
-        utility.debug('Single user deleted =>', data, 'SUCCESS');
+      utility.debug('Single user deleted =>', data, 'SUCCESS');
     });
   });
 
