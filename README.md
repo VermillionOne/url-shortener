@@ -172,3 +172,11 @@ Delete User based upon User id.
 Redirects to original URL address.
 
 ## Utiliity
+
+Start server with `DEBUG=true` in order to enable debug mode.
+
+```
+// Full command:
+DEBUG=true nodemon src/serverjs
+```
+
