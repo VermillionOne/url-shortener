@@ -2,14 +2,12 @@ const url = require('../models/url');
 
 module.exports = (express) => {
   const router = express.Router();
-
   // to show /go is operational
   router.get('/status', (req, res) => {
     res.json({
       healthy: true,
     });
   });
-
   // Read a single short URL and get an original URL in response
   router.get('/:shortUrl', (req, res) => {
     const request = req;
@@ -21,9 +19,7 @@ module.exports = (express) => {
     }, (data) => {
       // Recieve back the response, and redirect to the original URL saved in the db
       response.redirect(data.originalUrl);
-
     });
   });
-
   return router;
-}
+};

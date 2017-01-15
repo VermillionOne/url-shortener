@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const utility = require('../lib/utility');
+
 const app = express();
 
 // config
@@ -8,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended:true
+  extended: true,
 }));
 
 // Setting Routes path

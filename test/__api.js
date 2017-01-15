@@ -1,13 +1,13 @@
-var expect = require('chai').expect();
-var request = require('supertest');
+/* global server */
+/* eslint-env mocha*/
+
+const expect = require('chai').expect();
+const request = require('supertest');
 
 describe('API', () => {
-  var server;
-
   beforeEach(() => {
-    server = require('../src/server.js')
+    const server = require('../src/server.js');
   });
-
   afterEach(() => {
     server.close();
   });
@@ -19,11 +19,9 @@ describe('API', () => {
     .expect('Content-Type', /json/)
     .expect((res) => {
       const status = res.body;
-
       // Save one single url from the list to test on in later tests
-      this.status = {healthy: true}
-
-      expect(status.length).to.be.above(0)
+      this.status = { healthy: true };
+      expect(status.length).to.be.above(0);
     })
     .end(done);
   });
@@ -54,5 +52,4 @@ describe('API', () => {
     .expect(200, { healthy: true })
     .end(done);
   });
-
 });
