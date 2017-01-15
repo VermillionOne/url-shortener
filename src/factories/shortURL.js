@@ -1,31 +1,25 @@
 // Arrays for genrating random strings
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
-  function pickALetter() {
-    let letter = letters.charAt(Math.floor(Math.random()*72));
-    return letter;
-  }
+function pickALetter() {
+  const letter = letters.charAt(Math.floor(Math.random() * 72));
+  return letter;
+}
 
-  function pickANumber() {
-    let number = Math.floor(Math.random() *10);
-    return number;
-  }
+function pickANumber() {
+  const number = Math.floor(Math.random() * 10);
+  return number;
+}
 
 // Function for creating short URLs
 exports.generate = () => {
-
   // Set variable for looping
-  var i = 0;
-  var ii = 9;
-  let letter1 = pickALetter();
-  let letter2 = pickALetter();
-  let letter3 = pickALetter();
-  let number1 = pickANumber();
-  let number2 = pickANumber();
-  let number3 = pickANumber();
-
-  let result = letter1 + letter2 + letter3 + number1.toString() + number2.toString() + number3.toString();
-
+  const letter1 = pickALetter();
+  const letter2 = pickALetter();
+  const letter3 = pickALetter();
+  const num1 = pickANumber();
+  const num2 = pickANumber();
+  const num3 = pickANumber();
+  const result = letter1 + letter2 + letter3 + num1.toString() + num2.toString() + num3.toString();
   return result;
-
-}
+};

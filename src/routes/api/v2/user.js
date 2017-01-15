@@ -17,7 +17,7 @@ module.exports = (express) => {
     const response = res;
     user.create(request.body, (err) => {
       response.status(500).json(err);
-        utility.debug('Attempt to create a new single User  =>', err, 'ERROR');
+      utility.debug('Attempt to create a new single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
       utility.debug('Single User Created =>', data, 'SUCCESS');
@@ -30,7 +30,7 @@ module.exports = (express) => {
     const response = res;
     user.findAll((err) => {
       response.status(500).json(err);
-        utility.debug('Attempt to access all Users  =>', err, 'ERROR');
+      utility.debug('Attempt to access all Users  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
       utility.debug('All users accessed =>', data, 'SUCCESS');
@@ -44,7 +44,7 @@ module.exports = (express) => {
     request.body.id = request.params.id;
     user.find(request.body, (err) => {
       response.status(500).json(err);
-        utility.debug('Attempt to access a single user  =>', err, 'ERROR');
+      utility.debug('Attempt to access a single user  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
       utility.debug('Single user accessed =>', data, 'SUCCESS');
@@ -58,7 +58,7 @@ module.exports = (express) => {
     request.body.id = request.params.id;
     user.update(req.body, (err) => {
       response.status(500).json(err);
-        utility.debug('Attempt to update a single User  =>', err, 'ERROR');
+      utility.debug('Attempt to update a single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
       utility.debug('Single user Updated =>', data, 'SUCCESS');
@@ -72,7 +72,7 @@ module.exports = (express) => {
     request.body.id = request.params.id;
     user.destroy(req.body, (err) => {
       response.status(500).json(err);
-        utility.debug('Attempt to delete a single User  =>', err, 'ERROR');
+      utility.debug('Attempt to delete a single User  =>', err, 'ERROR');
     }, (data) => {
       response.status(200).json(data);
       utility.debug('Single user deleted =>', data, 'SUCCESS');

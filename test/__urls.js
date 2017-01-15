@@ -1,9 +1,11 @@
+/* global server */
+/* eslint-env mocha*/
+
 const expect = require('chai').expect;
 const request = require('supertest');
 
 describe('URL Routes', () => {
-  var server;
-  var url;
+  const server;
 
   beforeEach(() => {
     server = require('../src/server.js');

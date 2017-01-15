@@ -180,3 +180,10 @@ Start server with `DEBUG=true` in order to enable debug mode.
 DEBUG=true nodemon src/serverjs
 ```
 
+## Style Guide
+
+This project follows the ESLint AirBNB style of coding.
+
+### Install With Atom
+
+Use the Atom package installer to install the 'linter-eslint' package.
