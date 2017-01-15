@@ -187,3 +187,8 @@ This project follows the ESLint AirBNB style of coding.
 ### Install With Atom
 
 Use the Atom package installer to install the 'linter-eslint' package.
+
+If that alone does not work, run the `eslintInstall.sh` file provided. The following command used in the project root directory will run the file:
+```
+./eslintInstall.sh
+```
