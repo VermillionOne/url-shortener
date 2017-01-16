@@ -171,7 +171,7 @@ Delete User based upon User id.
 ##### [GET] /go/:shortUrl
 Redirects to original URL address.
 
-## Utiliity
+## Usage
 
 Start server with `DEBUG=true` in order to enable debug mode.
 
@@ -187,3 +187,7 @@ This project follows the ESLint AirBNB style of coding.
 ### Install With Atom
 
 Use the Atom package installer to install the 'linter-eslint' package.
+
+## Unit Testing
+
+Run in the CLI using the command, `mocha`, or add debugging with `DEBUG=true mocha`.
