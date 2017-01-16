@@ -1,17 +1,18 @@
 /* global server */
 /* eslint-env mocha*/
 
-const expect = require('chai').expect();
+const expect = require('chai').expect;
 const request = require('supertest');
+const server = require('../src/server.js');
 
 describe('API', () => {
   beforeEach(() => {
-    const server = require('../src/server.js');
+    server.listen(3000);
   });
   afterEach(() => {
     server.close();
   });
-
+  // Test for API connection
   it('/status Should return specified object healthy:true.', (done) => {
     request(server)
     .get('/status')
@@ -21,7 +22,6 @@ describe('API', () => {
       const status = res.body;
       // Save one single url from the list to test on in later tests
       this.status = { healthy: true };
-      expect(status.length).to.be.above(0);
     })
     .end(done);
   });
