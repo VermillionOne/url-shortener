@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const utility = require('../lib/utility');
+const utility = require('logr-utility');
 
 const app = express();
 

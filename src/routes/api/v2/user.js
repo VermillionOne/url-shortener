@@ -1,5 +1,5 @@
 const user = require('../../../models/user');
-const utility = require('../../../../lib/utility');
+const utility = require('logr-utility');
 
 module.exports = (express) => {
   const router = express.Router();
