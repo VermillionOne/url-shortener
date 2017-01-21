@@ -4,6 +4,7 @@
 const expect = require('chai').expect;
 const request = require('supertest');
 const server = require('../src/server.js');
+const utility = require('../lib/utility.js');
 
 describe('API', () => {
   beforeEach(() => {
