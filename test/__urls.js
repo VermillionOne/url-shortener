@@ -4,7 +4,7 @@
 const expect = require('chai').expect;
 const request = require('supertest');
 
-const utility = require('../lib/utility');
+const utility = require('logr-utility');
 const srv = require('../src/server.js');
 
 describe('URL Routes', () => {

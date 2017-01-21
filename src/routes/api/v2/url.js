@@ -1,6 +1,6 @@
 const url = require('../../../models/url');
 const shortURL = require('../../../factories/shortURL');
-const utility = require('../../../../lib/utility');
+const utility = require('logr-utility');
 
 module.exports = (express) => {
   const router = express.Router();
