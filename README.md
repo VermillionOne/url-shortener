@@ -184,17 +184,27 @@ DEBUG=true nodemon src/serverjs
 
 This project follows the ESLint AirBNB style of coding.
 
-```
-./eslintInstall.sh
-```
-
 ### Install With Atom
 
 Use the Atom package installer to install the 'linter-eslint' package.
 
+If that alone does not work, run the `eslintInstall.sh` file provided. The following commands used in the project root directory will run the file:
+
+First, enable the file to be executable:
+```
+sudo chmod -x eslintInstall.sh
+```
+Run the shell file:
+```
+./eslintInstall.sh
+```
 
 ## Unit Testing
 
 Run in the CLI using the command, `mocha`, or add debugging with `DEBUG=true mocha`.
 
-If that alone does not work, run the `eslintInstall.sh` file provided. The following command used in the project root directory will run the file:
+## Workflow
+
+To submit a pull-request, create a new branch in the project with `git checkout -b feature/name-of-feature`. After committing and pushing your branch, select VermillionOne as a reviewer when submitting the pull request.
+
+## Deployment
